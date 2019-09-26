@@ -7,13 +7,13 @@ using JetBrains.Annotations;
 namespace IX.Abstractions.Logging
 {
     /// <summary>
-    /// The environment settings for logging.
+    ///     The environment settings for logging.
     /// </summary>
     [PublicAPI]
     public class EnvironmentSettings
     {
         /// <summary>
-        /// Gets or sets the default logging provider (if any).
+        ///     Gets or sets the default logging provider (if any).
         /// </summary>
         public ILog DefaultLoggingProvider { get; set; }
     }

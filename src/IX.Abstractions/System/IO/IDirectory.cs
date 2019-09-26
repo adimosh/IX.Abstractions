@@ -28,7 +28,7 @@ namespace IX.System.IO
         /// <param name="path">The path of the directory.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
-        ///     A task.
+        ///     A task representing the current operation.
         /// </returns>
         [NotNull]
         Task CreateDirectoryAsync(
@@ -50,7 +50,7 @@ namespace IX.System.IO
         /// <param name="path">The path of the directory.</param>
         /// <param name="recursive"><see langword="true" /> if deletion should be recursive to all subdirectories.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A task.</returns>
+        /// <returns>A task representing the current operation.</returns>
         [NotNull]
         Task DeleteAsync(
             [NotNull] string path,
@@ -71,7 +71,7 @@ namespace IX.System.IO
         /// <param name="path">The path of the directory.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
-        ///     A task that has an enumerable of directory paths as result.
+        ///     A task representing the current operation that has an enumerable of directory paths as result.
         /// </returns>
         [NotNull]
         Task<IEnumerable<string>> EnumerateDirectoriesAsync(
@@ -96,7 +96,7 @@ namespace IX.System.IO
         /// <param name="searchPattern">The search pattern to use.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
-        ///     A task that has an enumerable of directory paths as result.
+        ///     A task representing the current operation that has an enumerable of directory paths as result.
         /// </returns>
         [NotNull]
         Task<IEnumerable<string>> EnumerateDirectoriesAsync(
@@ -118,7 +118,7 @@ namespace IX.System.IO
         /// <param name="path">The path of the directory.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
-        ///     A task that has an enumerable of directory paths as result.
+        ///     A task representing the current operation that has an enumerable of directory paths as result.
         /// </returns>
         [NotNull]
         Task<IEnumerable<string>> EnumerateDirectoriesRecursivelyAsync(
@@ -145,7 +145,7 @@ namespace IX.System.IO
         /// <param name="searchPattern">The search pattern to use.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
-        ///     A task that has an enumerable of directory paths as result.
+        ///     A task representing the current operation that has an enumerable of directory paths as result.
         /// </returns>
         [NotNull]
         Task<IEnumerable<string>> EnumerateDirectoriesRecursivelyAsync(
@@ -167,7 +167,7 @@ namespace IX.System.IO
         /// <param name="path">The path of the directory.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
-        ///     A task that has an enumerable of file paths as result.
+        ///     A task representing the current operation that has an enumerable of file paths as result.
         /// </returns>
         [NotNull]
         Task<IEnumerable<string>> EnumerateFilesAsync(
@@ -192,7 +192,7 @@ namespace IX.System.IO
         /// <param name="searchPattern">The search pattern to use.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
-        ///     A task that has an enumerable of file paths as result.
+        ///     A task representing the current operation that has an enumerable of file paths as result.
         /// </returns>
         [NotNull]
         Task<IEnumerable<string>> EnumerateFilesAsync(
@@ -214,7 +214,7 @@ namespace IX.System.IO
         /// <param name="path">The path of the directory.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
-        ///     A task that has an enumerable of file paths as result.
+        ///     A task representing the current operation that has an enumerable of file paths as result.
         /// </returns>
         [NotNull]
         Task<IEnumerable<string>> EnumerateFilesRecursivelyAsync(
@@ -240,7 +240,7 @@ namespace IX.System.IO
         /// <param name="searchPattern">The search pattern to use.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
-        ///     A task that has an enumerable of file paths as result.
+        ///     A task representing the current operation that has an enumerable of file paths as result.
         /// </returns>
         [NotNull]
         Task<IEnumerable<string>> EnumerateFilesRecursivelyAsync(
@@ -262,7 +262,7 @@ namespace IX.System.IO
         /// <param name="path">The path of the directory.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
-        ///     A task that has an enumerable of file system entry paths as result.
+        ///     A task representing the current operation that has an enumerable of file system entry paths as result.
         /// </returns>
         [NotNull]
         Task<IEnumerable<string>> EnumerateFileSystemEntriesAsync(
@@ -287,7 +287,7 @@ namespace IX.System.IO
         /// <param name="searchPattern">The search pattern to use.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
-        ///     A task that has an enumerable of file system entry paths as result.
+        ///     A task representing the current operation that has an enumerable of file system entry paths as result.
         /// </returns>
         [NotNull]
         Task<IEnumerable<string>> EnumerateFileSystemEntriesAsync(
@@ -309,7 +309,7 @@ namespace IX.System.IO
         /// <param name="path">The path of the directory.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
-        ///     A task that has an enumerable of file system entry paths as result.
+        ///     A task representing the current operation that has an enumerable of file system entry paths as result.
         /// </returns>
         [NotNull]
         Task<IEnumerable<string>> EnumerateFileSystemEntriesRecursivelyAsync(
@@ -336,7 +336,7 @@ namespace IX.System.IO
         /// <param name="searchPattern">The search pattern to use.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
-        ///     A task that has an enumerable of file system entry paths as result.
+        ///     A task representing the current operation that has an enumerable of file system entry paths as result.
         /// </returns>
         [NotNull]
         Task<IEnumerable<string>> EnumerateFileSystemEntriesRecursivelyAsync(
@@ -360,7 +360,7 @@ namespace IX.System.IO
         /// <param name="path">The path of the directory.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
-        ///     Returnsa task that has the result of a boolean of value <see langword="true" /> if the specified directory exists
+        ///     A task representing the current operation that has the result of a boolean of value <see langword="true" /> if the specified directory exists
         ///     and is accessible, <see langword="false" /> otherwise.
         /// </returns>
         [NotNull]
@@ -381,7 +381,7 @@ namespace IX.System.IO
         /// <param name="path">The path of the directory.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
-        ///     A task that has a <see cref="T:System.DateTime" /> in UTC.
+        ///     A task representing the current operation that has a <see cref="T:System.DateTime" /> in UTC.
         /// </returns>
         [NotNull]
         Task<DateTime> GetCreationTimeAsync(
@@ -471,7 +471,7 @@ namespace IX.System.IO
         /// <param name="path">The path of the directory.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
-        ///     A task that has a <see cref="T:System.DateTime" /> in UTC.
+        ///     A task representing the current operation that has a <see cref="T:System.DateTime" /> in UTC.
         /// </returns>
         [NotNull]
         Task<DateTime> GetLastAccessTimeAsync(
@@ -491,7 +491,7 @@ namespace IX.System.IO
         /// <param name="path">The path of the directory.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
-        ///     A task that has a <see cref="T:System.DateTime" /> in UTC.
+        ///     A task representing the current operation that has a <see cref="T:System.DateTime" /> in UTC.
         /// </returns>
         [NotNull]
         Task<DateTime> GetLastWriteTimeAsync(
@@ -513,7 +513,7 @@ namespace IX.System.IO
         /// <param name="sourceDirectoryName">The source directory name.</param>
         /// <param name="destinationDirectoryName">The destination directory name.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A task.</returns>
+        /// <returns>A task representing the current operation.</returns>
         [NotNull]
         Task MoveAsync(
             [NotNull] string sourceDirectoryName,
@@ -535,7 +535,7 @@ namespace IX.System.IO
         /// <param name="path">The path of the directory.</param>
         /// <param name="creationTime">A <see cref="DateTime" /> with the directory attribute to set.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A task.</returns>
+        /// <returns>A task representing the current operation.</returns>
         [NotNull]
         Task SetCreationTimeAsync(
             [NotNull] string path,
@@ -557,7 +557,7 @@ namespace IX.System.IO
         /// <param name="path">The path of the directory.</param>
         /// <param name="lastAccessTime">A <see cref="DateTime" /> with the directory attribute to set.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A task.</returns>
+        /// <returns>A task representing the current operation.</returns>
         [NotNull]
         Task SetLastAccessTimeAsync(
             [NotNull] string path,
@@ -579,7 +579,7 @@ namespace IX.System.IO
         /// <param name="path">The path of the directory.</param>
         /// <param name="lastWriteTime">A <see cref="DateTime" /> with the directory attribute to set.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A task.</returns>
+        /// <returns>A task representing the current operation.</returns>
         [NotNull]
         Task SetLastWriteTimeAsync(
             [NotNull] string path,
