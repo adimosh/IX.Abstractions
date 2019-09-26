@@ -1,6 +1,6 @@
 pool:
-  name: Hosted Windows 2019 with VS2019
-  demands: vstest
+  name: Latest Windows pool
+  vmImage: windows-latest
 
 trigger:
   branches:
@@ -48,9 +48,3 @@ steps:
   inputs:
     projects: src/IX.Abstractions.sln
     arguments: '-c Debug --version-suffix alpha'
-
-- task: VSTest@2
-  displayName: 'Unit tests for debug'
-  inputs:
-    codeCoverageEnabled: true
-    diagnosticsEnabled: True

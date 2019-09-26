@@ -1,6 +1,6 @@
 pool:
-  name: Hosted Windows 2019 with VS2019
-  demands: vstest
+  name: Latest Windows pool
+  vmImage: windows-latest
 
 trigger: none
 
@@ -23,9 +23,6 @@ steps:
   inputs:
     projects: src/IX.Abstractions.sln
     arguments: '-c Release'
-
-- task: VSTest@2
-  displayName: 'Unit tests for release'
 
 - task: ChangelogGenerator@1
   inputs:
