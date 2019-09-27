@@ -1,0 +1,14 @@
+parameters:
+  solutionName: ''
+
+steps:
+- template: build-solution.yml
+  parameters:
+    solutionName: ${{ parameters.solutionName }}
+- template: clean-solution.yml
+  parameters:
+    solutionName: ${{ parameters.solutionName }}
+- template: build-solution.yml
+  parameters:
+    solutionName: ${{ parameters.solutionName }}
+    configurationName: 'Release'
