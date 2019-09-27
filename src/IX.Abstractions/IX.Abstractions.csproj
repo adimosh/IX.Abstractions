@@ -2,8 +2,14 @@
 <Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
 
   <!-- Build configuration -->
-  <PropertyGroup>
+  <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
     <TargetFrameworks>net45;net461;netstandard1.2;netstandard2.0</TargetFrameworks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(OS)' != 'Windows_NT'">
+    <TargetFrameworks>netstandard1.2;netstandard2.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <FailObsoleteTargetFrameworks>true</FailObsoleteTargetFrameworks>
   </PropertyGroup>
 

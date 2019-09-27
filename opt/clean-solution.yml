@@ -9,6 +9,6 @@ steps:
   displayName: 'Clean up after ${{ parameters.configurationName }}'
   inputs:
     command: custom
-    projects: src/{{ parameters.solutionName }}.sln
+    projects: src/${{ parameters.solutionName }}.sln
     custom: clean
     arguments: '--configuration ${{ parameters.configurationName }} --verbosity minimal'
