@@ -1,0 +1,10 @@
+parameters:
+  solutionName: ''
+
+steps:
+- template: build-solution.yml
+  parameters:
+    solutionName: ${{ parameters.solutionName }}
+    configurationName: 'Release'
+- template: generate-changelog.yml
+- template: copy-artifacts.yml

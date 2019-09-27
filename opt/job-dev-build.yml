@@ -1,0 +1,7 @@
+parameters:
+  solutionName: ''
+
+steps:
+- template: build-solution.yml
+  parameters:
+    solutionName: ${{ parameters.solutionName }}

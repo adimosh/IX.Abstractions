@@ -1,7 +1,3 @@
-pool:
-  name: Hosted Windows 2019 with VS2019
-  vmImage: windows-latest
-
 trigger:
   branches:
     include:
@@ -35,16 +31,33 @@ variables:
   IxVersionSuffix:
   system.debug: false
 
-steps:
-- task: DotNetCoreCLI@2
-  displayName: 'Restore interdependencies (project system)'
-  inputs:
-    command: restore
-    projects: src/IX.Abstractions.sln
-    verbosityRestore: Minimal
+# Jobs should run in parallel
 
-- task: DotNetCoreCLI@2
-  displayName: 'Build in debug'
-  inputs:
-    projects: src/IX.Abstractions.sln
-    arguments: '-c Debug --version-suffix alpha'
+jobs:
+- job:
+  timeoutInMinutes: 5
+  pool:
+    name: Azure Pipelines
+    vmImage: windows-latest
+  steps:
+  - template: ../opt/job-dev-build.yml
+    parameters:
+      solutionName: 'IX.Abstractions'
+- job:
+  timeoutInMinutes: 5
+  pool:
+    name: Azure Pipelines
+    vmImage: ubuntu-latest
+  steps:
+  - template: ../opt/job-dev-build.yml
+    parameters:
+      solutionName: 'IX.Abstractions'
+- job:
+  timeoutInMinutes: 5
+  pool:
+    name: Azure Pipelines
+    vmImage: macOS-latest
+  steps:
+  - template: ../opt/job-dev-build.yml
+    parameters:
+      solutionName: 'IX.Abstractions'
