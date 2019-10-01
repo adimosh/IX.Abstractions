@@ -125,6 +125,11 @@
     <TargetFrameworkIsStandard2>true</TargetFrameworkIsStandard2>
     <DefineConstants>$(DefineConstants);NETSTANDARD2_0;STANDARD_GT_12;STANDARD_GT_13;STANDARD_GT_14;STANDARD_GT_15;STANDARD_GT_16</DefineConstants>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
+    <TargetFrameworkIsStandard2>true</TargetFrameworkIsStandard2>
+    <DefineConstants>$(DefineConstants);NETSTANDARD2_1;STANDARD_GT_12;STANDARD_GT_13;STANDARD_GT_14;STANDARD_GT_15;STANDARD_GT_16;STANDARD_GT_20</DefineConstants>
+  </PropertyGroup>
   
   <!-- Extra debug symbols for target framework type -->
   <PropertyGroup Condition="'$(TargetFrameworkIsFramework)'=='true'">

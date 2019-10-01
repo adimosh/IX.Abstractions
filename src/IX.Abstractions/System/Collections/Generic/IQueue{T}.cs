@@ -67,7 +67,7 @@ namespace IX.System.Collections.Generic
         ///     Copies all elements of the queue into a new array.
         /// </summary>
         /// <returns>The created array with all element of the queue.</returns>
-        [NotNull]
+        [JetBrains.Annotations.NotNull]
         T[] ToArray();
 
         /// <summary>
