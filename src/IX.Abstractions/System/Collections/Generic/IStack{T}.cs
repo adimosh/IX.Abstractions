@@ -19,6 +19,14 @@ namespace IX.System.Collections.Generic
     public interface IStack<T> : IReadOnlyCollection<T>
     {
         /// <summary>
+        ///     Gets a value indicating whether this stack is empty.
+        /// </summary>
+        /// <value>
+        ///     <c>true</c> if this stack is empty; otherwise, <c>false</c>.
+        /// </value>
+        bool IsEmpty { get; }
+
+        /// <summary>
         ///     Clears the observable stack.
         /// </summary>
         void Clear();
@@ -47,6 +55,20 @@ namespace IX.System.Collections.Generic
         /// </summary>
         /// <param name="item">The item to push.</param>
         void Push(T item);
+
+        /// <summary>
+        ///     Pushes a range of elements to the top of the stack.
+        /// </summary>
+        /// <param name="item">The item range to push.</param>
+        void PushRange(T[] item);
+
+        /// <summary>
+        /// Pushes a range of elements to the top of the stack.
+        /// </summary>
+        /// <param name="item">The item range to push.</param>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="count">The number of items to push.</param>
+        void PushRange(T[] item, int startIndex, int count);
 
         /// <summary>
         ///     Copies all elements of the stack to a new array.

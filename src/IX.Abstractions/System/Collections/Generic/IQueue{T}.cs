@@ -24,6 +24,14 @@ namespace IX.System.Collections.Generic
     public interface IQueue<T> : ICollection, IReadOnlyCollection<T>
     {
         /// <summary>
+        ///     Gets a value indicating whether this queue is empty.
+        /// </summary>
+        /// <value>
+        ///     <c>true</c> if this queue is empty; otherwise, <c>false</c>.
+        /// </value>
+        bool IsEmpty { get; }
+
+        /// <summary>
         ///     Clears the queue of all elements.
         /// </summary>
         void Clear();
@@ -33,7 +41,8 @@ namespace IX.System.Collections.Generic
         /// </summary>
         /// <param name="item">The item to verify.</param>
         /// <returns><see langword="true" /> if the item is queued, <see langword="false" /> otherwise.</returns>
-        bool Contains(T item);
+        bool Contains(
+            T item);
 
         /// <summary>
         ///     De-queues an item and removes it from the queue.
@@ -49,7 +58,12 @@ namespace IX.System.Collections.Generic
         ///     <see langword="true" /> if an item is de-queued successfully, <see langword="false" /> otherwise, or if the
         ///     queue is empty.
         /// </returns>
-        bool TryDequeue([CanBeNull] out T item);
+        bool TryDequeue(
+#if NETSTANDARD2_1
+            [MaybeNullWhen(false)]
+#endif
+            [CanBeNull]
+            out T item);
 
         /// <summary>
         ///     Queues an item, adding it to the queue.
@@ -68,6 +82,9 @@ namespace IX.System.Collections.Generic
         /// </summary>
         /// <returns>The created array with all element of the queue.</returns>
         [JetBrains.Annotations.NotNull]
+#if NETSTANDARD2_1
+        [return: global::System.Diagnostics.CodeAnalysis.NotNull]
+#endif
         T[] ToArray();
 
         /// <summary>

@@ -23,7 +23,7 @@ namespace IX.System.IO
         /// </summary>
         /// <param name="path">The path of the file.</param>
         /// <param name="contents">The contents.</param>
-        /// <param name="encoding">The encoding to use.</param>
+        /// <param name="encoding">The encoding to use. Can be <see langword="null" />.</param>
         /// <remarks>
         ///     <para>
         ///         This operation always requires an encoding to be used. If <paramref name="encoding" /> is set to
@@ -34,14 +34,14 @@ namespace IX.System.IO
         void AppendAllLines(
             [NotNull] string path,
             [NotNull] IEnumerable<string> contents,
-            Encoding encoding = null);
+            Encoding? encoding = null);
 
         /// <summary>
         ///     Asynchronously appends lines of text to a specified file path.
         /// </summary>
         /// <param name="path">The path of the file.</param>
         /// <param name="contents">The contents.</param>
-        /// <param name="encoding">The encoding to use.</param>
+        /// <param name="encoding">The encoding to use. Can be <see langword="null" />.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
         ///     A task representing the current operation.
@@ -55,7 +55,7 @@ namespace IX.System.IO
         Task AppendAllLinesAsync(
             [NotNull] string path,
             [NotNull] IEnumerable<string> contents,
-            Encoding encoding = null,
+            Encoding? encoding = null,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace IX.System.IO
         /// </summary>
         /// <param name="path">The path of the file.</param>
         /// <param name="contents">The contents.</param>
-        /// <param name="encoding">The encoding to use.</param>
+        /// <param name="encoding">The encoding to use. Can be <see langword="null" />.</param>
         /// <remarks>
         ///     <para>
         ///         This operation always requires an encoding to be used. If <paramref name="encoding" /> is set to
@@ -74,14 +74,14 @@ namespace IX.System.IO
         void AppendAllText(
             [NotNull] string path,
             [NotNull] string contents,
-            Encoding encoding = null);
+            Encoding? encoding = null);
 
         /// <summary>
         ///     Asynchronously appends text to a specified file path.
         /// </summary>
         /// <param name="path">The path of the file.</param>
         /// <param name="contents">The contents.</param>
-        /// <param name="encoding">The encoding to use.</param>
+        /// <param name="encoding">The encoding to use. Can be <see langword="null" />.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
         ///     A task representing the current operation.
@@ -95,7 +95,7 @@ namespace IX.System.IO
         Task AppendAllTextAsync(
             [NotNull] string path,
             [NotNull] string contents,
-            Encoding encoding = null,
+            Encoding? encoding = null,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -337,7 +337,7 @@ namespace IX.System.IO
         ///     Reads the entire contents of a file and splits them by end-of-line markers.
         /// </summary>
         /// <param name="path">The path of the file.</param>
-        /// <param name="encoding">The encoding to use.</param>
+        /// <param name="encoding">The encoding to use. Can be <see langword="null" />.</param>
         /// <returns>An array of <see cref="string" />.</returns>
         /// <remarks>
         ///     <para>
@@ -349,13 +349,13 @@ namespace IX.System.IO
         [NotNull]
         string[] ReadAllLines(
             [NotNull] string path,
-            Encoding encoding = null);
+            Encoding? encoding = null);
 
         /// <summary>
         ///     Asynchronously reads the entire contents of a file and splits them by end-of-line markers.
         /// </summary>
         /// <param name="path">The path of the file.</param>
-        /// <param name="encoding">The encoding to use.</param>
+        /// <param name="encoding">The encoding to use. Can be <see langword="null" />.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
         ///     A task representing the current operation, holding an array of <see cref="string" />.
@@ -370,14 +370,14 @@ namespace IX.System.IO
         [NotNull]
         Task<string[]> ReadAllLinesAsync(
             [NotNull] string path,
-            Encoding encoding = null,
+            Encoding? encoding = null,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         ///     Reads the entire contents of a file as text.
         /// </summary>
         /// <param name="path">The path of the file.</param>
-        /// <param name="encoding">The encoding to use.</param>
+        /// <param name="encoding">The encoding to use. Can be <see langword="null" />.</param>
         /// <returns>The entire file contents as a string.</returns>
         /// <remarks>
         ///     <para>
@@ -389,13 +389,13 @@ namespace IX.System.IO
         [NotNull]
         string ReadAllText(
             [NotNull] string path,
-            Encoding encoding = null);
+            Encoding? encoding = null);
 
         /// <summary>
         ///     Asynchronously reads the entire contents of a file as text.
         /// </summary>
         /// <param name="path">The path of the file.</param>
-        /// <param name="encoding">The encoding to use.</param>
+        /// <param name="encoding">The encoding to use. Can be <see langword="null" />.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
         ///     A task representing the current operation, holding the entire file contents as a <see cref="string" />.
@@ -410,14 +410,14 @@ namespace IX.System.IO
         [NotNull]
         Task<string> ReadAllTextAsync(
             [NotNull] string path,
-            Encoding encoding = null,
+            Encoding? encoding = null,
             CancellationToken cancellationToken = default);
 
         /// <summary>
         ///     Reads file contents as text line by line.
         /// </summary>
         /// <param name="path">The path of the file.</param>
-        /// <param name="encoding">The encoding to use.</param>
+        /// <param name="encoding">The encoding to use. Can be <see langword="null" />.</param>
         /// <returns>An enumerable of strings, each representing one line of text.</returns>
         /// <remarks>
         ///     <para>
@@ -429,7 +429,7 @@ namespace IX.System.IO
         [NotNull]
         IEnumerable<string> ReadLines(
             [NotNull] string path,
-            Encoding encoding = null);
+            Encoding? encoding = null);
 
         /// <summary>
         ///     Sets the file's creation time.
@@ -532,7 +532,7 @@ namespace IX.System.IO
         /// </summary>
         /// <param name="path">The path of the file.</param>
         /// <param name="contents">The contents to write.</param>
-        /// <param name="encoding">The encoding to use.</param>
+        /// <param name="encoding">The encoding to use. Can be <see langword="null" />.</param>
         /// <remarks>
         ///     <para>
         ///         This operation always requires an encoding to be used. If <paramref name="encoding" /> is set to
@@ -543,14 +543,14 @@ namespace IX.System.IO
         void WriteAllLines(
             [NotNull] string path,
             [NotNull] IEnumerable<string> contents,
-            Encoding encoding = null);
+            Encoding? encoding = null);
 
         /// <summary>
         ///     Asynchronously writes lines of text to a file.
         /// </summary>
         /// <param name="path">The path of the file.</param>
         /// <param name="contents">The contents to write.</param>
-        /// <param name="encoding">The encoding to use.</param>
+        /// <param name="encoding">The encoding to use. Can be <see langword="null" />.</param>
         /// <remarks>
         ///     <para>
         ///         This operation always requires an encoding to be used. If <paramref name="encoding" /> is set to
@@ -566,7 +566,7 @@ namespace IX.System.IO
         Task WriteAllLinesAsync(
             [NotNull] string path,
             [NotNull] IEnumerable<string> contents,
-            Encoding encoding = null,
+            Encoding? encoding = null,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -574,7 +574,7 @@ namespace IX.System.IO
         /// </summary>
         /// <param name="path">The path of the file.</param>
         /// <param name="contents">The contents to write.</param>
-        /// <param name="encoding">The encoding to use.</param>
+        /// <param name="encoding">The encoding to use. Can be <see langword="null" />.</param>
         /// <remarks>
         ///     <para>
         ///         This operation always requires an encoding to be used. If <paramref name="encoding" /> is set to
@@ -585,14 +585,14 @@ namespace IX.System.IO
         void WriteAllText(
             [NotNull] string path,
             [NotNull] string contents,
-            Encoding encoding = null);
+            Encoding? encoding = null);
 
         /// <summary>
         ///     Writes text to a file.
         /// </summary>
         /// <param name="path">The path of the file.</param>
         /// <param name="contents">The contents to write.</param>
-        /// <param name="encoding">The encoding to use.</param>
+        /// <param name="encoding">The encoding to use. Can be <see langword="null" />.</param>
         /// <remarks>
         ///     <para>
         ///         This operation always requires an encoding to be used. If <paramref name="encoding" /> is set to
@@ -608,7 +608,7 @@ namespace IX.System.IO
         Task WriteAllTextAsync(
             [NotNull] string path,
             [NotNull] string contents,
-            Encoding encoding = null,
+            Encoding? encoding = null,
             CancellationToken cancellationToken = default);
     }
 }

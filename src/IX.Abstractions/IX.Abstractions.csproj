@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--EXTERNAL_PROPERTIES: TargetFrameworkIsFramework-->
+<!--EXTERNAL_PROPERTIES: TargetFrameworkIsStandard-->
 <Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
 
   <!-- Build configuration -->
@@ -10,6 +13,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <Nullable>enable</Nullable>
     <FailObsoleteTargetFrameworks>true</FailObsoleteTargetFrameworks>
   </PropertyGroup>
 
@@ -24,8 +28,15 @@
     <RootNamespace>IX</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <PackageReleaseNotes>- Corrected some JetBrains annotations.
+- Improved abstraction interfaces to be more meaningful to concurrent scenarios.
+- Library now includes direct abstractions, such as Queue and Stack.</PackageReleaseNotes>
+  </PropertyGroup>
+
   <!-- References -->
   <ItemGroup Condition="'$(TargetFrameworkIsFramework)'=='true'">
+    <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
 
@@ -41,6 +52,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="System\Collections\Concurrent\" />
   </ItemGroup>
 
 </Project>
