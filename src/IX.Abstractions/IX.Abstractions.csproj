@@ -29,9 +29,9 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageReleaseNotes>- Corrected some JetBrains annotations.
-- Improved abstraction interfaces to be more meaningful to concurrent scenarios.
-- Library now includes direct abstractions, such as Queue and Stack.</PackageReleaseNotes>
+    <PackageReleaseNotes>- Dependencies updated.
+- Prepared for SemVer 2.
+- Updated project system.</PackageReleaseNotes>
   </PropertyGroup>
 
   <!-- References -->
@@ -48,7 +48,7 @@
 
   <!-- Project system and dependencies -->
   <ItemGroup>
-    <PackageReference Include="IX.Framework.ProjectSystem" Version="1.0.0.10">
+    <PackageReference Include="IX.Framework.ProjectSystem" Version="1.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
