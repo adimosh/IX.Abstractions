@@ -33,6 +33,12 @@ variables:
 
 # Jobs should run in parallel
 
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: adimosh/IX.Framework.Operations
+
 jobs:
 - job:
   timeoutInMinutes: 5
@@ -40,7 +46,7 @@ jobs:
     name: Azure Pipelines
     vmImage: windows-latest
   steps:
-  - template: ../opt/yaml/job-dev-build.yml
+  - template: yaml/job-dev-build.yml@temlplates
     parameters:
       solutionName: 'IX.Abstractions'
 - job:
@@ -49,7 +55,7 @@ jobs:
     name: Azure Pipelines
     vmImage: ubuntu-latest
   steps:
-  - template: ../opt/yaml/job-dev-build.yml
+  - template: yaml/job-dev-build.yml@templates
     parameters:
       solutionName: 'IX.Abstractions'
 - job:
@@ -58,6 +64,6 @@ jobs:
     name: Azure Pipelines
     vmImage: macOS-latest
   steps:
-  - template: ../opt/yaml/job-dev-build.yml
+  - template: yaml/job-dev-build.yml@templates
     parameters:
       solutionName: 'IX.Abstractions'
