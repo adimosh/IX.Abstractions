@@ -5,18 +5,15 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IX.Abstractions", "IX.Abstractions\IX.Abstractions.csproj", "{8CFFDFA8-C702-482D-B396-1212ECBF377B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5E05B9C5-6765-44FC-8A6E-BEE018BDEA9B}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build Configurations", "Build Configurations", "{F7C7F358-C8BF-4126-AE44-F4CA067EB4CE}"
 	ProjectSection(SolutionItems) = preProject
 		azure.devops.devci.yaml = azure.devops.devci.yaml
 		azure.devops.masterci.yaml = azure.devops.masterci.yaml
 		azure.devops.releasebuild.yaml = azure.devops.releasebuild.yaml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IDE Configuration", "IDE Configuration", "{9ACF55FC-8537-4C24-8D87-54B21F95FD52}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-		stylecop.json = stylecop.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub Documentation", "GitHub Documentation", "{47F5D8F6-4058-4D9C-85AE-94FC78DEF6B0}"
@@ -40,7 +37,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F7C7F358-C8BF-4126-AE44-F4CA067EB4CE} = {5E05B9C5-6765-44FC-8A6E-BEE018BDEA9B}
-		{9ACF55FC-8537-4C24-8D87-54B21F95FD52} = {5E05B9C5-6765-44FC-8A6E-BEE018BDEA9B}
 		{47F5D8F6-4058-4D9C-85AE-94FC78DEF6B0} = {5E05B9C5-6765-44FC-8A6E-BEE018BDEA9B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
