@@ -17,6 +17,6 @@ jobs:
     name: Azure Pipelines
     vmImage: windows-latest
   steps:
-  - template: ../opt/job-release-build.yml
+  - template: ../opt/yaml/job-release-build.yml
     parameters:
       solutionName: 'IX.Abstractions'
