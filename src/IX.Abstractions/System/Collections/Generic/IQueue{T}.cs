@@ -60,7 +60,7 @@ namespace IX.System.Collections.Generic
         /// </returns>
         bool TryDequeue(
 #if NETSTANDARD2_1
-            [MaybeNullWhen(false)]
+            [NotNullWhen(true), MaybeNullWhen(false)]
 #endif
             [CanBeNull]
             out T item);

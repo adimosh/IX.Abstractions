@@ -15,6 +15,10 @@ namespace IX.Abstractions.Logging
         /// <summary>
         ///     Gets or sets the default logging provider (if any).
         /// </summary>
-        public ILog DefaultLoggingProvider { get; set; }
+        [CanBeNull]
+        #if NETSTANDARD2_1
+        [global::System.Diagnostics.CodeAnalysis.MaybeNull]
+        #endif
+        public ILog? DefaultLoggingProvider { get; set; }
     }
 }
