@@ -77,6 +77,25 @@ namespace IX.System.Collections.Generic
             item = this.Dequeue();
             return true;
         }
+
+        /// <summary>
+        /// Attempts to peek at the current queue and return the item that is next in line to be dequeued.
+        /// </summary>
+        /// <param name="item">The item, or default if unsuccessful.</param>
+        /// <returns><see langword="true" /> if an item is found, <see langword="false"/> otherwise, or if the queue is empty.</returns>
+        public bool TryPeek(out T item)
+        {
+            if (this.Count == 0)
+            {
+#pragma warning disable CS8653 // A default expression introduces a null value for a type parameter.
+                item = default;
+#pragma warning restore CS8653 // A default expression introduces a null value for a type parameter.
+                return false;
+            }
+
+            item = this.Peek();
+            return true;
+        }
 #endif
     }
 }

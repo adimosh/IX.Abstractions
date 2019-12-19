@@ -66,6 +66,18 @@ namespace IX.System.Collections.Generic
             out T item);
 
         /// <summary>
+        /// Attempts to peek at the current queue and return the item that is next in line to be dequeued.
+        /// </summary>
+        /// <param name="item">The item, or default if unsuccessful.</param>
+        /// <returns><see langword="true" /> if an item is found, <see langword="false"/> otherwise, or if the queue is empty.</returns>
+        bool TryPeek(
+#if NETSTANDARD2_1
+            [NotNullWhen(true), MaybeNullWhen(false)]
+#endif
+            [CanBeNull]
+            out T item);
+
+        /// <summary>
         ///     Queues an item, adding it to the queue.
         /// </summary>
         /// <param name="item">The item to enqueue.</param>
