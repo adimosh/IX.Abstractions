@@ -2,6 +2,7 @@
 // Copyright (c) Adrian Mos with all rights reserved. Part of the IX Framework.
 // </copyright>
 
+using System;
 using JetBrains.Annotations;
 using GlobalCollectionsGeneric = System.Collections.Generic;
 
@@ -52,25 +53,97 @@ namespace IX.System.Collections.Generic
         public bool IsEmpty => this.Count == 0;
 
         /// <summary>
-        /// Converts from a standard .NET queue.
+        ///     Converts from a standard .NET queue.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <returns>An IX Framework abstracted queue.</returns>
         public static Queue<T> FromQueue(GlobalCollectionsGeneric.Queue<T> source) => new Queue<T>(source.ToArray());
 
+        /// <summary>
+        ///     Queues a range of elements, adding them to the queue.
+        /// </summary>
+        /// <param name="items">The item range to push.</param>
+        /// <exception cref="ArgumentNullException">
+        ///     items
+        ///     is <c>null</c> (<c>Nothing</c> in Visual Basic).
+        /// </exception>
+        public void EnqueueRange(T[] items)
+        {
+            if (items == null)
+            {
+                throw new ArgumentNullException(nameof(items));
+            }
+
+            foreach (var item in items)
+            {
+                this.Enqueue(item);
+            }
+        }
+
+        /// <summary>
+        ///     Queues a range of elements, adding them to the queue.
+        /// </summary>
+        /// <param name="items">The item range to enqueue.</param>
+        /// <param name="startIndex">The start index.</param>
+        /// <param name="count">The number of items to enqueue.</param>
+        /// <exception cref="ArgumentNullException">
+        ///     items
+        ///     is <c>null</c> (<c>Nothing</c> in Visual Basic).
+        /// </exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        ///     <paramref name="startIndex" />
+        ///     or
+        ///     <paramref name="count" />
+        ///     represent an out-of-range set of arguments relative to the input array.
+        /// </exception>
+        public void EnqueueRange(
+            T[] items,
+            int startIndex,
+            int count)
+        {
+            if (items == null)
+            {
+                throw new ArgumentNullException(nameof(items));
+            }
+
+            if (startIndex < 0 || startIndex >= items.Length)
+            {
+                throw new ArgumentOutOfRangeException(nameof(startIndex));
+            }
+
+            if (count <= 0 || count + startIndex > items.Length)
+            {
+                throw new ArgumentOutOfRangeException(nameof(count));
+            }
+
+            T[] innerArray = new T[count];
+            Array.Copy(
+                items,
+                startIndex,
+                innerArray,
+                0,
+                count);
+
+            foreach (var item in items)
+            {
+                this.Enqueue(item);
+            }
+        }
+
 #if !NETSTANDARD2_1
         /// <summary>
-        /// Attempts to de-queue an item and to remove it from queue.
+        ///     Attempts to de-queue an item and to remove it from queue.
         /// </summary>
         /// <param name="item">The item that has been de-queued, default if unsuccessful.</param>
-        /// <returns><see langword="true" /> if an item is de-queued successfully, <see langword="false"/> otherwise, or if the queue is empty.</returns>
+        /// <returns>
+        ///     <see langword="true" /> if an item is de-queued successfully, <see langword="false" /> otherwise, or if the
+        ///     queue is empty.
+        /// </returns>
         public bool TryDequeue(out T item)
         {
             if (this.Count == 0)
             {
-#pragma warning disable CS8653 // A default expression introduces a null value for a type parameter.
-                item = default;
-#pragma warning restore CS8653 // A default expression introduces a null value for a type parameter.
+                item = default!;
                 return false;
             }
 
@@ -79,17 +152,15 @@ namespace IX.System.Collections.Generic
         }
 
         /// <summary>
-        /// Attempts to peek at the current queue and return the item that is next in line to be dequeued.
+        ///     Attempts to peek at the current queue and return the item that is next in line to be dequeued.
         /// </summary>
         /// <param name="item">The item, or default if unsuccessful.</param>
-        /// <returns><see langword="true" /> if an item is found, <see langword="false"/> otherwise, or if the queue is empty.</returns>
+        /// <returns><see langword="true" /> if an item is found, <see langword="false" /> otherwise, or if the queue is empty.</returns>
         public bool TryPeek(out T item)
         {
             if (this.Count == 0)
             {
-#pragma warning disable CS8653 // A default expression introduces a null value for a type parameter.
-                item = default;
-#pragma warning restore CS8653 // A default expression introduces a null value for a type parameter.
+                item = default!;
                 return false;
             }
 
